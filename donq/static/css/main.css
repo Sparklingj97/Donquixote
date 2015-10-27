@@ -1076,7 +1076,10 @@ label {
     border-left: transparent;
     border-right: transparent;
     margin-left: 20px;
+<<<<<<< HEAD:donq/static/css/main.css
     margin-bottom: 15px;
+=======
+>>>>>>> 7797e2a... 머지 잘해줘영:css/main.css
     z-index: 1;
 }
 
@@ -1096,17 +1099,26 @@ label {
 
 #category_select_box {
     height: 15px;
+<<<<<<< HEAD:donq/static/css/main.css
     width: 260px;
+=======
+    width: 115px;
+>>>>>>> 7797e2a... 머지 잘해줘영:css/main.css
 }
 
 .arrowdown {
     float: right;
+<<<<<<< HEAD:donq/static/css/main.css
     margin-right: -50px;
+=======
+    margin-right: -13px;
+>>>>>>> 7797e2a... 머지 잘해줘영:css/main.css
     color: #7d7d7d;
     vertical-align: middle;
     line-height: 1.6em;
     font-size: 0.6em;
 }
+<<<<<<< HEAD:donq/static/css/main.css
 
 #downarrow {
     float: right;
@@ -1388,3 +1400,5 @@ label {
 .comment_cat {
     font-size: 1em;
 }
+=======
+>>>>>>> 7797e2a... 머지 잘해줘영:css/main.css
