@@ -1,6 +1,7 @@
 #DONQUIXOTE ver 2.0
+### we are now learning GIT!!
 
 
-```
-살려야 한다
+```python
+살 려 야  한 다 .
 ```
