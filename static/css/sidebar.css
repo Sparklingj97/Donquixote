@@ -1,0 +1,50 @@
+.sidebar {
+    position: relative;
+    width: 240px;
+    left: -15px;
+}
+
+.logo:hover {
+    background-color: #3e27ee; !important;
+}
+
+#side-page-logo {
+    width: 100%;
+    margin-top: 12px;
+}
+
+#top-page-logo {
+    display: none;
+}
+
+@media only screen and (max-width: 992px) {
+    #top-page-logo {
+        display: inline-block;
+        height: 46px;
+        margin-top: 9px;
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    #top-page-logo {
+        display: inline-block;
+        height: 46px;
+        margin-top: 5px;
+    }
+}
+.sidebar-profile {
+    position: relative;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.profile-frame {
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+    margin-left: calc(50% - 60px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../image/profile.png);
+}
