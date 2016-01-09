@@ -1,4 +1,4 @@
-![](/Users/An-Woojin/Desktop/Woojin's/선린/2015/디콘/돈키호테 기획서/donquixote.png)
+![](./static/image/logo-dark.png)
 <br><br>
 #DONQUIXOTE with Flask 소개
 ### **'DONQUIXOTE'** 는 가성비가 떨어지는 서비스나 제품들을 사람들끼리 서로 제보, 공유, 평가하는 SNS서비스입니다.
