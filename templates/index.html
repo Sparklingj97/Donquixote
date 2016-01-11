@@ -5,13 +5,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
     <link rel="stylesheet" href="../static/css/materialize.css"></link>
+    <link rel="stylesheet" href="../static/css/index.css"></link>
+    <link rel="stylesheet" href="../static/css/common.css"></link>
     <link rel="stylesheet" href="../static/css/sidebar.css"></link>
+    <link rel="stylesheet" href="../static/css/jquery-rate.css"></link>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.transifex.com/live.js"></script>
     <div class="container">
-        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"></a>
     </div>
+    <!-- 사이드바 -->
     <ul id="nav-mobile" class="side-nav fixed brown darken-4">
         <li class="logo">
             <a id="logo-container" href="index.html" class="brand-logo">
@@ -20,7 +23,7 @@
         </li>
         <li>
             <div class="sidebar-profile">
-                <div class="profile-frame" src="../static/image/profile.png">
+                <div class="profile-frame circle">
                 </div>
                 <h4 class="white-text">username</h4>
             </div>
@@ -30,7 +33,21 @@
                 <li class="bold"><a class="collapsible-header white-text waves-effect waves-light">분류 카테고리</a>
                     <div class="collapsible-body">
                         <ul>
-                            <li class="brown darken-5"><a href="#" class="white-text">Color</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">전체보기</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">의류</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">미용 / 뷰티</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">음료 및 주류</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">식품</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">생활용품</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">교육</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">금융</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">문화</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">스포츠 / 레저</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">관리 / 중계 서비스</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">인테리어 용품 / 서비스</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">전자기기</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">생활서비스</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">오락</a></li>
                         </ul>
                     </div>
                 </li>
@@ -46,19 +63,162 @@
 </head>
 
 <body>
+    <!-- 상단바 -->
     <div class="navbar-fixed">
         <nav>
             <div class="white nav-wrapper">
+                <a href="#" data-activates="nav-mobile" class="button-collapse black-text"><i class="mdi-navigation-menu"></i></a>
                 <a href="index.html" class="brand-logo">
                     <object id="top-page-logo" type="image/png" data="../static/image/logo-dark.png"></object>
                 </a>
                 <ul id="nav-mobile" class="mdi-navigation-menu right hide-on-med-and-down">
-                    <li class="waves-effect waves-orange"><a href="#" class="search-box black-text"><i class="material-icons black-text left">search</i>검색</a></li>
-                    <li class="waves-effect waves-orange"><a href="#"><i class="material-icons black-text">chat_bubble_outline</i></a></li>
-                    <li class="waves-effect waves-orange"><a href="#"><i class="material-icons black-text">more_vert</i></a></li>
+                    <li class="search-topbar">
+                        <a href="#" style="padding: 0;">
+                            <form class="col search" style="padding: 0;">
+                                <div class="row" style="padding: 0;">
+                                    <div class="input-field brown-text darken-5" style="height: 64px">
+                                        <i class="material-icons prefix right">search</i>
+                                        <input id="icon_prefix" type="search" class="validate searchfield-topbar">
+                                        <label for="icon_prefix"></label>
+                                    </div>
+                                </div>
+                            </form>
+                        </a>
+                    </li>
+                    <li class="waves-effect waves-orange"><a href="#"><i class="material-icons brown-text">chat_bubble_outline</i></a></li>
+                    <li class="waves-effect waves-orange"><a href="#"><i class="material-icons brown-text darken-5">mode_edit</i></a></li>
                 </ul>
             </div>
         </nav>
+    </div>
+
+    <!-- 카드 레이아웃 박스 -->
+    <div class="contents-container">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content white-text">
+                    <!--창점-->
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <input name="star1" type="radio" class="star" />
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12" style="padding-bottom:0px;">
+                                <i class="material-icons prefix brown-text">mode_edit</i>
+                                <textarea id="icon_prefix2" class="materialize-textarea black-text"></textarea>
+                                <label for="icon_prefix2">당신의 분노를 창으로 표현해주세요!</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-bottom">
+                    <a href="#">
+                        <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </a>
+                    <a class="brown lighten-1 waves-effect waves-light btn left"><i class="material-icons">camera</i></a>
+                    <a style=""></a>
+                    <a class="brown lighten-1 waves-effect waves-light btn"><i class="material-icons">play_circle_outline</i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/image/1.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">케이준 치킨 또띠아..</span>
+                    <p>
+                        <div class="chip">
+                            식품
+                        </div>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">케이준 치킨 또띠아..<i class="material-icons right">close</i></span>
+                    <p>저번에 한번 사고나서 교묘하게 가려져 있어서 어이가 없었는데 ㅡㅡ 뉴스까지 나오고 꼴좋다!!</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/image/2.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">우린 어디다 주차해야하나여..</span>
+                    <p>
+                        <div class="chip">
+                            생활 서비스
+                        </div>
+                        <div class="chip">
+                            문화
+                        </div>
+                        <div class="chip">
+                            교육
+                        </div>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">우린 어디다 주차해야하나여...<i class="material-icons right">close</i></span>
+                    <p>보건소 주차장에 장애인 주차시설은 없고 여성전용 주차장같은 말같지도 않은게 있네요..
+                        <br>좀 너무한것 같지 않습니까??
+                        <br>너무 어이가 없어서 10창 드리려는데 여러분 생각은 어떤가요??</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/image/3.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">6000원의 행복~~</span>
+                    <p>
+                        <div class="chip">
+                            식품
+                        </div>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">6000원의 행복~~<i class="material-icons right">close</i></span>
+                    <p>편의점 음식인데도 불구하고 6000원에 무려 9개나 들어있습니다!
+                        <br> 물론 낙지가 들어가있진 않지만 뭐 붕어빵에 붕어가 들어가는것도 아니잖습니까??ㅋㅋ 편의점치고 가성비가 좋네요! 8창 드립니다!</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="../static/image/4.jpg">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">기모티~~~기모띠</span>
+                    <p>
+                        <div class="chip">
+                            의류
+                        </div>
+                    </p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">기모티~~~기모띠<i class="material-icons right">close</i></span>
+                    <p>기모티가 스타일도 좋은데 가격도 5000원 기모띠~~
+                        <br> 조만간 스쉐에 리뷰 올리려구요 ㅎㅎ
+                        <br> 오늘 정말 횡재했네요 영창드립니다ㅎㅎ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 플로팅버튼 -->
+    <div class="show-mobile fixed-action-btn vertical click-to-toggle" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large waves-effect brown"><i class="material-icons">menu</i></a>
+        <ul>
+            <li><a class="btn-floating red"><i class="material-icons">search</i></a></li>
+            <li><a class="btn-floating yellow darken-1"><i class="material-icons">chat_bubble_outline</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">mode_edit</i></a></li>
+        </ul>
     </div>
 
     <footer>
@@ -80,6 +240,7 @@
     <script src="../static/js/search.js"></script>
     <script src="../static/js/materialize.js"></script>
     <script src="../static/js/init.js"></script>
+    <script src="../static/js/jquery-star-rate.js"></script>
 </body>
 
 </html>

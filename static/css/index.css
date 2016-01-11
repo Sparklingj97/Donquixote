@@ -1,0 +1,14 @@
+
+.show-mobile {
+    display: inline-block;
+}
+
+@media only screen and (min-width: 992px) {
+    .show-mobile {
+        display: none;
+    }
+}
+
+body {
+    background-color: rgba(0,0,0,0.03);
+}

@@ -1,0 +1,37 @@
+
+.contents-container {
+    position: fixed;
+    overflow-x: hidden;
+    top: 64px;
+    height: calc(100% - 64px);
+    left: 240px;
+    width: calc(100% - 240px);
+}
+
+.card-container {
+    position: absolute;
+    width: 600px;
+    left: calc(50% - 300px);
+    height: auto;
+}
+
+@media only screen and (max-width: 992px) {
+    .contents-container {
+        width: 100%;
+        left: 0px;    
+    }
+}
+
+@media only screen and (max-width: 601px) {
+    .contents-container {
+        top: 55px;
+        height: calc(100% - 55px);
+    }
+    .card-container {
+        width: calc(100% - 20px);
+        left: 10px;
+    }
+}
+.card-bottom {
+    padding: 20px;
+}

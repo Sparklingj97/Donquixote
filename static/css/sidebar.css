@@ -39,7 +39,6 @@
 }
 
 .profile-frame {
-    border-radius: 100%;
     width: 120px;
     height: 120px;
     margin-left: calc(50% - 60px);
@@ -54,3 +53,32 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+.searchfield-topbar {
+    float: right;
+}
+
+.search-topbar {
+    height: 64px;
+}
+
+.row {
+    height: 64px;
+}
+
+.search{
+    background-color: white;
+    transition: 0.3s ease;
+}
+.search:hover {
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
