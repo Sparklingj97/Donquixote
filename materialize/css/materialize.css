@@ -7402,7 +7402,7 @@ nav ul li {
 }
 
 nav ul li.active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 nav ul a {
@@ -7413,7 +7413,6 @@ nav ul a {
   padding: 0 15px;
   cursor: pointer;
 }
-
 
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
   margin-top: -2px;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="4728845c-91c2-4b56-9445-ae62e3e44f82" name="AWS" url="http://ec2-52-192-192-202.ap-northeast-1.compute.amazonaws.com:5000">
+        <fileTransfer host="ec2-52-192-192-202.ap-northeast-1.compute.amazonaws.com" port="22" privateKey="$PROJECT_DIR$/../woojinan.pem" rootFolder="/home/ubuntu" accessType="SFTP" username="ubuntu" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
