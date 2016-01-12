@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/css/login.css"></link>
     <link rel="stylesheet" href="../static/css/materialize.css"></link>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>로그인</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.transifex.com/live.js"></script>
 </head>
@@ -17,22 +18,31 @@
             <div id="logo-container" class="brand-logo">
                 <object type="image/png" data="../static/image/logo.png" width="100%"></object>
             </div>
-            <div class="input-field white-text">
-                <i class="material-icons login-icon prefix white-text">account_circle</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">ID</label>
-            </div>
-            <div class="input-field white-text">
-                <i class="material-icons login-icon prefix white-text">vpn_key</i>
-                <input type="password" id="icon_telephone" type="tel" class="validate">
-                <label for="icon_telephone">PASSWORD</label>
-            </div>
-            <p class="checkboxbox">
-                <input type="checkbox" class="filled-in" id="filled-in-box" />
-                <label for="filled-in-box">자동 로그인</label>
-            </p>
-            <a href="index.html" class="login-btn waves-effect brown darken-5 waves-light btn">LOGIN</a><br>
-            <a href="signup.html" class="signup white-text">회원가입</a>
+
+            <form action="/success" method="post">
+
+                <div class="input-field white-text">
+                    <i class="material-icons login-icon prefix white-text">account_circle</i>
+                    <input id="icon_prefix" type="email" name="email" class="validate">
+                    <label for="icon_prefix">Email</label>
+                </div>
+
+                <div class="input-field white-text">
+                    <i class="material-icons login-icon prefix white-text">vpn_key</i>
+                    <input type="password" id="icon_telephone" name="password" type="tel" class="validate">
+                    <label for="icon_telephone">Password</label>
+                </div>
+
+                <p class="checkboxbox">
+                    <input type="checkbox" class="filled-in" name="autoLogin" id="filled-in-box" />
+                    <label for="filled-in-box">자동 로그인</label>
+                </p>
+
+                <button class="login-btn btn waves-effect waves-light brown darken-5" type="submit" name="action">로그인</button>
+            </form>
+
+            <br>
+            <a href="register" class="signup white-text">회원가입</a>
         </div>
         <script src="../static/js/materialize.js"></script>
     </div>

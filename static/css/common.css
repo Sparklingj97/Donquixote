@@ -1,5 +1,5 @@
 
-.contents-container {
+#contents-container {
     position: fixed;
     overflow-x: hidden;
     top: 64px;
@@ -8,7 +8,7 @@
     width: calc(100% - 240px);
 }
 
-.card-container {
+#card-container {
     position: absolute;
     width: 600px;
     left: calc(50% - 300px);
@@ -16,18 +16,18 @@
 }
 
 @media only screen and (max-width: 992px) {
-    .contents-container {
+    #contents-container {
         width: 100%;
         left: 0px;    
     }
 }
 
 @media only screen and (max-width: 601px) {
-    .contents-container {
+    #contents-container {
         top: 55px;
         height: calc(100% - 55px);
     }
-    .card-container {
+    #card-container {
         width: calc(100% - 20px);
         left: 10px;
     }

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../static/css/common.css"></link>
     <link rel="stylesheet" href="../static/css/sidebar.css"></link>
     <link rel="stylesheet" href="../static/css/jquery-rate.css"></link>
+    <script src="../static/js/index.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.transifex.com/live.js"></script>
@@ -27,6 +28,21 @@
                 </div>
                 <h4 class="white-text">username</h4>
             </div>
+        </li>
+        <li class = "no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header white-text waves-effect waves-light">게시물 정렬</a>
+                    <div class="collapsible-body">
+                        <ul>
+                            <li class="brown darken-5"><a href="#" class="white-text">최신순</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">인기도순</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">신뢰도순</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">十창순</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">零창순</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </li>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
@@ -53,11 +69,6 @@
                 </li>
             </ul>
         </li>
-        <li class="bold"><a href="#" class="waves-effect waves-light white-text">최신순</a></li>
-        <li class="bold"><a href="#" class="waves-effect waves-light white-text">인기도순</a></li>
-        <li class="bold"><a href="#" class="waves-effect waves-light white-text">신뢰도순</a></li>
-        <li class="bold"><a href="#" class="waves-effect waves-light white-text">十창순</a></li>
-        <li class="bold"><a href="#" class="waves-effect waves-light white-text">零창순</a></li>
     </ul>
 
 </head>
@@ -76,7 +87,7 @@
                         <a href="#" style="padding: 0;">
                             <form class="col search" style="padding: 0;">
                                 <div class="row" style="padding: 0;">
-                                    <div class="input-field brown-text darken-5" style="height: 64px">
+                                    <div class="input-field brown-text" style="height: 64px">
                                         <i class="material-icons prefix right">search</i>
                                         <input id="icon_prefix" type="search" class="validate searchfield-topbar">
                                         <label for="icon_prefix"></label>
@@ -86,15 +97,18 @@
                         </a>
                     </li>
                     <li class="waves-effect waves-orange"><a href="#"><i class="material-icons brown-text">chat_bubble_outline</i></a></li>
-                    <li class="waves-effect waves-orange"><a href="#"><i class="material-icons brown-text darken-5">mode_edit</i></a></li>
+                    <li onclick="clikedWriteButton()" class="waves-effect waves-orange"><a href="#"><i class="material-icons brown-text darken-5">mode_edit</i></a></li>
                 </ul>
             </div>
         </nav>
     </div>
 
     <!-- 카드 레이아웃 박스 -->
-    <div class="contents-container">
-        <div class="card-container">
+    <div id="contents-container">
+        <div id="card-container">
+           
+           
+           <!-- 글 쓰기 -->
             <div class="card">
                 <div class="card-content white-text">
                     <!--창점-->
@@ -120,32 +134,18 @@
                 </div>
                 <div class="card-bottom">
                     <a href="#">
-                        <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">Submit
+                        <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">올리기
                             <i class="material-icons right">send</i>
                         </button>
                     </a>
-                    <a class="brown lighten-1 waves-effect waves-light btn left"><i class="material-icons">camera</i></a>
+                    <a style="margin-right: 10px;" class="brown lighten-1 waves-effect waves-light btn left"><i class="material-icons">camera</i></a>
                     <a style=""></a>
                     <a class="brown lighten-1 waves-effect waves-light btn"><i class="material-icons">play_circle_outline</i></a>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../static/image/1.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">케이준 치킨 또띠아..</span>
-                    <p>
-                        <div class="chip">
-                            식품
-                        </div>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">케이준 치킨 또띠아..<i class="material-icons right">close</i></span>
-                    <p>저번에 한번 사고나서 교묘하게 가려져 있어서 어이가 없었는데 ㅡㅡ 뉴스까지 나오고 꼴좋다!!</p>
-                </div>
-            </div>
+            
+            
+            <!-- 컨텐츠 정렬 -->
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="../static/image/2.jpg">
@@ -171,43 +171,8 @@
                         <br>너무 어이가 없어서 10창 드리려는데 여러분 생각은 어떤가요??</p>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../static/image/3.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">6000원의 행복~~</span>
-                    <p>
-                        <div class="chip">
-                            식품
-                        </div>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">6000원의 행복~~<i class="material-icons right">close</i></span>
-                    <p>편의점 음식인데도 불구하고 6000원에 무려 9개나 들어있습니다!
-                        <br> 물론 낙지가 들어가있진 않지만 뭐 붕어빵에 붕어가 들어가는것도 아니잖습니까??ㅋㅋ 편의점치고 가성비가 좋네요! 8창 드립니다!</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../static/image/4.jpg">
-                </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">기모티~~~기모띠</span>
-                    <p>
-                        <div class="chip">
-                            의류
-                        </div>
-                    </p>
-                </div>
-                <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">기모티~~~기모띠<i class="material-icons right">close</i></span>
-                    <p>기모티가 스타일도 좋은데 가격도 5000원 기모띠~~
-                        <br> 조만간 스쉐에 리뷰 올리려구요 ㅎㅎ
-                        <br> 오늘 정말 횡재했네요 영창드립니다ㅎㅎ</p>
-                </div>
-            </div>
+            
+            
         </div>
     </div>
 
@@ -217,7 +182,7 @@
         <ul>
             <li><a class="btn-floating red"><i class="material-icons">search</i></a></li>
             <li><a class="btn-floating yellow darken-1"><i class="material-icons">chat_bubble_outline</i></a></li>
-            <li><a class="btn-floating blue"><i class="material-icons">mode_edit</i></a></li>
+            <li><a class="btn-floating blue"><i id="scroll" class="material-icons" onclick="clikedWriteButton()">mode_edit</i></a></li>
         </ul>
     </div>
 
@@ -239,6 +204,7 @@
     <script src="../static/js/lunr.min.js"></script>
     <script src="../static/js/search.js"></script>
     <script src="../static/js/materialize.js"></script>
+
     <script src="../static/js/init.js"></script>
     <script src="../static/js/jquery-star-rate.js"></script>
 </body>
