@@ -98,7 +98,7 @@ def search(email, pw, autologin, is_web=True):
     else:
         return None
 
-@app.route("/logout")
+@app.route("/logout", methods=["POST"])
 def logout():
     resp = make_response(render_template(
         "login.html"
