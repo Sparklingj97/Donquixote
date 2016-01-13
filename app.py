@@ -5,15 +5,27 @@ from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_sqlalchemy import SQLAlchemy
 
+##
+from flask.ext.script import Manager
+from flask.ext.migrate import Migrate, MigrateCommand
+
+
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:woojin@localhost/flask' # 'mySQL://id:pw@localhost/flask'
 app.config['SECRET_KEY'] = 'asldjalksjdklasd'
 admin = Admin(app)
 db = SQLAlchemy(app)
 
+##
+migrate = Migrate(app, db)
+
+manager = Manager(app)
+manager.add_command('db', MigrateCommand)
+
 class User(db.Model):
     """
-    from test import db
+    from app import db
     db.create_all()
     """
     __tablename__ = "user"
@@ -23,7 +35,6 @@ class User(db.Model):
     email = db.Column(db.String(20), unique=True)
     passwd = db.Column(db.String(20))
     created = db.Column(db.DateTime, default=datetime.now)
-
     # no __init__()
 
 class Comment(db.Model):
@@ -32,10 +43,21 @@ class Comment(db.Model):
     idx = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(200))
     who = db.Column(db.Integer, db.ForeignKey('user.idx'))
+    created = db.Column(db.DateTime, default=datetime.now)
+
+class Post(db.Model):
+    __tablename__ = "post"
+
+    idx = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String())
+    who = db.Column(db.Integer, db.ForeignKey('user.idx'))
+    created = db.Column(db.DateTime, default=datetime.now)
+    image = db.Column(db.String())
+    video = db.Column(db.String())
 
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Comment, db.session))
-
+admin.add_view(ModelView(Post, db.session))
 
 # 로그인 되있으면 메인, 아니면 로그인창
 @app.route("/")
