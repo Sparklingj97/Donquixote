@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="AWS" showNewOnTargetInSync="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="AWS" uploadOnCheckin="4728845c-91c2-4b56-9445-ae62e3e44f82" showNewOnTargetInSync="false">
     <serverData>
       <paths name="AWS">
         <serverdata>
@@ -10,6 +10,7 @@
         </serverdata>
       </paths>
     </serverData>
+    <option name="myUploadOnCheckinName" value="AWS" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>

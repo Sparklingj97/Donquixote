@@ -100,7 +100,9 @@ def search(email, pw, autologin, is_web=True):
 
 @app.route("/logout")
 def logout():
-    resp = make_response()
+    resp = make_response(render_template(
+        "login.html"
+    ))
     resp.set_cookie("username", expires=datetime.now())
     resp.set_cookie("useremail", expires=datetime.now())
     return resp
