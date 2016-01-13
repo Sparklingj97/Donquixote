@@ -29,7 +29,7 @@
                 <h4 class="white-text">username</h4>
             </div>
         </li>
-        <li class = "no-padding">
+        <li class="no-padding">
             <ul class="collapsible collapsible-accordion">
                 <li class="bold"><a class="collapsible-header white-text waves-effect waves-light">게시물 정렬</a>
                     <div class="collapsible-body">
@@ -69,6 +69,11 @@
                 </li>
             </ul>
         </li>
+        <form action="/logout" method="post">
+            <li class="bold">
+                <a class="white-text waves-effect waves-light" name="logout">로그아웃</a>
+            </li>
+        </form>
     </ul>
 
 </head>
@@ -106,9 +111,9 @@
     <!-- 카드 레이아웃 박스 -->
     <div id="contents-container">
         <div id="card-container">
-           
-           
-           <!-- 글 쓰기 -->
+
+
+            <!-- 글 쓰기 -->
             <div class="card">
                 <div class="card-content white-text">
                     <!--창점-->
@@ -133,18 +138,19 @@
                     </form>
                 </div>
                 <div class="card-bottom">
-                    <a href="#">
-                        <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">올리기
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </a>
-                    <a style="margin-right: 10px;" class="brown lighten-1 waves-effect waves-light btn left"><i class="material-icons">camera</i></a>
-                    <a style=""></a>
-                    <a class="brown lighten-1 waves-effect waves-light btn"><i class="material-icons">play_circle_outline</i></a>
+                    <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">올리기
+                        <i class="material-icons right">send</i>
+                    </button>
+                    <button style="margin-right: 10px;" class="brown lighten-1 waves-effect waves-light btn left">
+                        <i class="material-icons">camera</i>
+                    </button>
+                    <button class="brown lighten-1 waves-effect waves-light btn">
+                        <i class="material-icons">play_circle_outline</i>
+                    </button>
                 </div>
             </div>
-            
-            
+
+
             <!-- 컨텐츠 정렬 -->
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -171,8 +177,8 @@
                         <br>너무 어이가 없어서 10창 드리려는데 여러분 생각은 어떤가요??</p>
                 </div>
             </div>
-            
-            
+
+
         </div>
     </div>
 

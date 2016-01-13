@@ -38,7 +38,7 @@ admin.add_view(ModelView(Comment, db.session))
 
 
 # 로그인 되있으면 메인, 아니면 로그인창
-@app.route("/")
+@app.route("")
 def hello():
     return login()
 
@@ -46,7 +46,6 @@ def hello():
 def main():
     return render_template("index.html")
 
-@app.route("/login")
 def login():
     username = request.cookies.get('username', None)
     useremail = request.cookies.get('useremail', None)
@@ -99,6 +98,12 @@ def search(email, pw, autologin, is_web=True):
     else:
         return None
 
+@app.route("/logout")
+def logout():
+    resp = make_response()
+    resp.set_cookie("username", expires=datetime.now())
+    resp.set_cookie("useremail", expires=datetime.now())
+    return resp
 
 # 회원탈퇴 예제
 @app.route("/delete/<name>/<email>/<pw>")
