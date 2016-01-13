@@ -38,7 +38,7 @@ admin.add_view(ModelView(Comment, db.session))
 
 
 # 로그인 되있으면 메인, 아니면 로그인창
-@app.route("")
+@app.route("/")
 def hello():
     return login()
 
