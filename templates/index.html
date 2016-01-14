@@ -121,48 +121,54 @@
 
             <!-- 글 쓰기 박스 시작 -->
             <div class="card">
-                <div class="card-content white-text">
-                    <div class="select">
-                        <select id="select" multiple class="black-text">
-                            <option disabled selected>카테고리</option>
-                            <option>의류</option>
-                            <option>미용/뷰티</option>
-                            <option>음료/주류</option>
-                            <option>식품</option>
-                            <option>생활용품</option>
-                            <option>교육</option>
-                            <option>금융</option>
-                            <option>문화</option>
-                            <option>스포츠/레저</option>
-                            <option>관리/중계</option>
-                            <option>인테리어</option>
-                            <option>전자기기</option>
-                            <option>생활서비스</option>
-                            <option>오락</option>
-                        </select>
+                <form>
+                    <div class="card-content white-text">
+                        <div class="select">
+                            <select id="select" multiple class="black-text" name="post_category">
+                                <option disabled selected>카테고리</option>
+                                <option>의류</option>
+                                <option>미용/뷰티</option>
+                                <option>음료/주류</option>
+                                <option>식품</option>
+                                <option>생활용품</option>
+                                <option>교육</option>
+                                <option>금융</option>
+                                <option>문화</option>
+                                <option>스포츠/레저</option>
+                                <option>관리/중계</option>
+                                <option>인테리어</option>
+                                <option>전자기기</option>
+                                <option>생활서비스</option>
+                                <option>오락</option>
+                            </select>
+                        </div>
+                        <!-- 창점 매기기 -->
+                        <div id="rate" name="post_chang" style="padding-top: 10px;"></div>
+                        <!-- 글쓰기 -->
+                            <div class="row">
+                                <div class="input-field col s12" style="padding-bottom:0px;">
+                                    <i class="material-icons prefix brown-text">mode_edit</i>
+                                    <textarea name="post_textarea" id="icon_prefix2" class="materialize-textarea black-text"></textarea>
+                                    <label for="icon_prefix2">당신의 분노를 창으로 표현해주세요!</label>
+                                </div>
+                            </div>
                     </div>
-                    <!-- 창점 매기기 -->
-                    <div id="rate" style="padding-top: 10px;"></div>
-                    <!-- 글쓰기 -->
-                    <form class="col s12">
-                        <div class="row">
-                            <div class="input-field col s12" style="padding-bottom:0px;">
-                                <i class="material-icons prefix brown-text">mode_edit</i>
-                                <textarea id="icon_prefix2" class="materialize-textarea black-text"></textarea>
-                                <label for="icon_prefix2">당신의 분노를 창으로 표현해주세요!</label>
+                    <!-- 글쓰기 카드 밑부분 -->
+                    <div class="card-bottom">
+                        <button class="brown darken-2 btn waves-effect waves-light right" style="margin-top: 10px; margin-left: 10px" type="submit" name="post_action">올리기
+                            <i class="material-icons right">send</i>
+                        </button>
+                        <div class="file-field">
+                            <div class="brown lighten-1 waves-effect waves-light btn tooltipped" name="post_image" data-position="top" data-delay="50" data-tooltip="사진">
+                                <i class="material-icons">camera</i>
+                                <input type="file" accept="image/*">
+                            </div>
+                            <div class="file-path-wrapper" id="disabled">
+                                <input class="file-path validate" type="text"></input>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <!-- 글쓰기 카드 밑부분 -->
-                <div class="card-bottom">
-                    <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">올리기
-                        <i class="material-icons right">send</i>
-                    </button>
-                    <button style="margin-right: 10px;" class="brown lighten-1 waves-effect waves-light btn tooltipped" data-position="top" data-delay="50" data-tooltip="사진" for="Post_file">
-                        <i class="material-icons">camera</i>
-                    </button>
-                </div>
+                    </div>
+                </form>
             </div>
 
 
@@ -259,12 +265,6 @@
             $('.post_chang').raty({
                 readOnly: true,
                 score: 10 //게시물 별점 받아와서 변경
-            });
-
-            $('#readOnly-callback').raty({
-                readOnly: function() {
-                    return 'true becomes readOnly' == 'true becomes readOnly';
-                }
             });
 
             $('#functions').raty({
