@@ -61,15 +61,15 @@
                         <ul>
                             <li class="brown darken-5"><a href="#" class="white-text">전체보기</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">의류</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">미용/뷰티</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">음료/주류</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">미용|뷰티</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">음료|주류</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">식품</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">생활용품</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">교육</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">금융</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">문화</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">스포츠/레저</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">관리/중계 서비스</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">스포츠|레저</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">관리|중계 서비스</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">인테리어</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">전자기기</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">생활서비스</a></li>
@@ -121,21 +121,21 @@
 
             <!-- 글 쓰기 박스 시작 -->
             <div class="card">
-                <form>
+                <form action="/new_post" method="post">
                     <div class="card-content white-text">
                         <div class="select">
                             <select id="select" multiple class="black-text" name="post_category">
-                                <option disabled selected>카테고리</option>
+                                <option disabled selected>카테고리를 선택해주세요!</option>
                                 <option>의류</option>
-                                <option>미용/뷰티</option>
-                                <option>음료/주류</option>
+                                <option>미용|뷰티</option>
+                                <option>음료|주류</option>
                                 <option>식품</option>
                                 <option>생활용품</option>
                                 <option>교육</option>
                                 <option>금융</option>
                                 <option>문화</option>
-                                <option>스포츠/레저</option>
-                                <option>관리/중계</option>
+                                <option>스포츠|레저</option>
+                                <option>관리|중계</option>
                                 <option>인테리어</option>
                                 <option>전자기기</option>
                                 <option>생활서비스</option>
@@ -159,9 +159,9 @@
                             <i class="material-icons right">send</i>
                         </button>
                         <div class="file-field">
-                            <div class="brown lighten-1 waves-effect waves-light btn tooltipped" name="post_image" data-position="top" data-delay="50" data-tooltip="사진">
+                            <div class="brown lighten-1 waves-effect waves-light btn tooltipped" data-position="top" data-delay="50" data-tooltip="사진">
                                 <i class="material-icons">camera</i>
-                                <input type="file" accept="image/*">
+                                <input type="file" accept="image/*" name="post_image">
                             </div>
                             <div class="file-path-wrapper" id="disabled">
                                 <input class="file-path validate" type="text"></input>

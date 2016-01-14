@@ -5,6 +5,7 @@ from flask import (
     render_template,
     request,
     make_response,
+    jsonify,
 )
 from db import (
     db,
@@ -112,7 +113,7 @@ def register():
     return render_template("register.html")
 
 # 회원가입 제출
-@app.route("/register_check")
+@app.route("/register_check", methods=["POST"])
 def register_success():
     name = request.form['name']
     email = request.form['email']
@@ -132,6 +133,37 @@ def create(name, email, passwd):
     db.session.add(new)
     db.session.commit()
     return login()
+
+
+#유저 포스팅
+@app.route("/new_post", methods=["POST"])
+def post():
+    from models.post import Post
+    new = Post()
+    new.idx = new.idx + 1
+    new.text = request.form['post_textarea']
+    new.category = request.form['post_category']
+    new.chang = request.form['post_chang']
+    new.image = request.form['post_image']
+    new.who = User.query.get(Post.query.first().who)
+    new.created = datetime.now()
+    return json(new.idx, new.text, new.category, new.chang, new.image, new.who, new.created)
+
+
+
+@app.route("/json")
+def json(idx, text, category, chang, image, who, created):
+    return jsonify({
+        1: {
+            "idx": idx,
+            "text": text,
+            "who": who,
+            "created": created,
+            "image": image,
+            "chang": chang,
+            "category": category,
+        }
+    })
 
 
 if __name__ == "__main__":
