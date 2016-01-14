@@ -1,65 +1,33 @@
 from datetime import datetime, timedelta
 
-from flask import Flask, jsonify, render_template, request, session, make_response
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
-from flask_sqlalchemy import SQLAlchemy
-
-##
-from flask.ext.script import Manager
-from flask.ext.migrate import Migrate, MigrateCommand
-
-
+from flask import (
+    Flask,
+    render_template,
+    request,
+    make_response,
+)
+from db import (
+    db,
+    migrate,
+)
+from models.user import User
+from admin import admin
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:woojin@localhost/flask' # 'mySQL://id:pw@localhost/flask'
-app.config['SECRET_KEY'] = 'asldjalksjdklasd'
-admin = Admin(app)
-db = SQLAlchemy(app)
+app.config.from_pyfile("configs.py")
+
+
+admin.init_app(app)
+
+
+db.init_app(app)
+
+
 
 ##
-migrate = Migrate(app, db)
+db.init_app(app)
+migrate.init_app(app, db)
 
-manager = Manager(app)
-manager.add_command('db', MigrateCommand)
-
-class User(db.Model):
-    """
-    from app import db
-    db.create_all()
-    """
-    __tablename__ = "user"
-
-    idx = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(20))
-    email = db.Column(db.String(20), unique=True)
-    passwd = db.Column(db.String(20))
-    created = db.Column(db.DateTime, default=datetime.now)
-    # no __init__()
-
-class Comment(db.Model):
-    __tablename__ = "comment"
-
-    idx = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(200))
-    who = db.Column(db.Integer, db.ForeignKey('user.idx'))
-    created = db.Column(db.DateTime, default=datetime.now)
-
-class Post(db.Model):
-    __tablename__ = "post"
-
-    idx = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String())
-    who = db.Column(db.Integer, db.ForeignKey('user.idx'))
-    created = db.Column(db.DateTime, default=datetime.now)
-    image = db.Column(db.String())
-    video = db.Column(db.String())
-    chang = db.Column(db.Integer)
-    category = db.Column(db.String(20))
-
-admin.add_view(ModelView(User, db.session))
-admin.add_view(ModelView(Comment, db.session))
-admin.add_view(ModelView(Post, db.session))
 
 # 로그인 되있으면 메인, 아니면 로그인창
 @app.route("/")
