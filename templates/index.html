@@ -8,11 +8,21 @@
     <link rel="stylesheet" href="../static/css/index.css"></link>
     <link rel="stylesheet" href="../static/css/common.css"></link>
     <link rel="stylesheet" href="../static/css/sidebar.css"></link>
-    <link rel="stylesheet" href="../static/css/jquery-rate.css"></link>
+    <link rel="stylesheet" href="../static/css/jquery.raty.css"></link>
     <script src="../static/js/index.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.transifex.com/live.js"></script>
+
+    <script>
+        $(':radio').change(
+            function() {
+                $('.choice').text(this.value + ' stars');
+            }
+        )
+
+    </script>
+
     <div class="container">
     </div>
     <!-- 사이드바 -->
@@ -51,16 +61,16 @@
                         <ul>
                             <li class="brown darken-5"><a href="#" class="white-text">전체보기</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">의류</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">미용 / 뷰티</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">음료 및 주류</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">미용/뷰티</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">음료/주류</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">식품</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">생활용품</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">교육</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">금융</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">문화</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">스포츠 / 레저</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">관리 / 중계 서비스</a></li>
-                            <li class="brown darken-5"><a href="#" class="white-text">인테리어 용품 / 서비스</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">스포츠/레저</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">관리/중계 서비스</a></li>
+                            <li class="brown darken-5"><a href="#" class="white-text">인테리어</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">전자기기</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">생활서비스</a></li>
                             <li class="brown darken-5"><a href="#" class="white-text">오락</a></li>
@@ -69,11 +79,7 @@
                 </li>
             </ul>
         </li>
-        <form action="/logout" method="post">
-            <li class="bold">
-                <a href="/logout" class="white-text waves-effect waves-light" type="submit" name="logout">로그아웃</a>
-            </li>
-        </form>
+        <a href="/logout" class="white-text waves-effect waves-light" type="submit" name="logout">로그아웃</a>
     </ul>
 
 </head>
@@ -113,20 +119,31 @@
         <div id="card-container">
 
 
-            <!-- 글 쓰기 -->
+            <!-- 글 쓰기 박스 시작 -->
             <div class="card">
                 <div class="card-content white-text">
-                    <!--창점-->
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
-                    <input name="star1" type="radio" class="star" />
+                    <div class="select">
+                        <select id="select" multiple class="black-text">
+                            <option disabled selected>카테고리</option>
+                            <option>의류</option>
+                            <option>미용/뷰티</option>
+                            <option>음료/주류</option>
+                            <option>식품</option>
+                            <option>생활용품</option>
+                            <option>교육</option>
+                            <option>금융</option>
+                            <option>문화</option>
+                            <option>스포츠/레저</option>
+                            <option>관리/중계</option>
+                            <option>인테리어</option>
+                            <option>전자기기</option>
+                            <option>생활서비스</option>
+                            <option>오락</option>
+                        </select>
+                    </div>
+                    <!-- 창점 매기기 -->
+                    <div id="rate" style="padding-top: 10px;"></div>
+                    <!-- 글쓰기 -->
                     <form class="col s12">
                         <div class="row">
                             <div class="input-field col s12" style="padding-bottom:0px;">
@@ -137,15 +154,13 @@
                         </div>
                     </form>
                 </div>
+                <!-- 글쓰기 카드 밑부분 -->
                 <div class="card-bottom">
                     <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action">올리기
                         <i class="material-icons right">send</i>
                     </button>
-                    <button style="margin-right: 10px;" class="brown lighten-1 waves-effect waves-light btn left">
+                    <button style="margin-right: 10px;" class="brown lighten-1 waves-effect waves-light btn tooltipped" data-position="top" data-delay="50" data-tooltip="사진" for="Post_file">
                         <i class="material-icons">camera</i>
-                    </button>
-                    <button class="brown lighten-1 waves-effect waves-light btn">
-                        <i class="material-icons">play_circle_outline</i>
                     </button>
                 </div>
             </div>
@@ -154,10 +169,12 @@
             <!-- 컨텐츠 정렬 -->
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="../static/image/2.jpg">
+                    <img class="" src="../static/image/2.jpg">
                 </div>
-                <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">우린 어디다 주차해야하나여..</span>
+                <div class="card-content activator">
+                    <span class="card-title grey-text text-darken-4">우린 어디다 주차해야하나여..</span>
+                    <!--창점 포스트-->
+                    <div class="post_chang" style="float:right"></div>
                     <p>
                         <div class="chip">
                             생활 서비스
@@ -174,7 +191,21 @@
                     <span class="card-title grey-text text-darken-4">우린 어디다 주차해야하나여...<i class="material-icons right">close</i></span>
                     <p>보건소 주차장에 장애인 주차시설은 없고 여성전용 주차장같은 말같지도 않은게 있네요..
                         <br>좀 너무한것 같지 않습니까??
-                        <br>너무 어이가 없어서 10창 드리려는데 여러분 생각은 어떤가요??</p>
+                        <br>너무 어이가 없어서 10창 드리려는데 여러분 생각은 어떤가요??
+                    </p>
+                    <div class="write-comment-box">
+                        <div class="input-field row" style="padding-bottom:0px;">
+                            <div class="col s8">
+                                <textarea id="icon_prefix2-comment" class="materialize-textarea black-text"></textarea>
+                                <label for="icon_prefix2-comment">댓글을 달아주세요!</label>
+                            </div>
+                            <div class="col s4">
+                                <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action" style="position: fixed; margin-top: 60px; margin-left: 30px">올리기
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -186,16 +217,15 @@
     <div class="show-mobile fixed-action-btn vertical click-to-toggle" style="bottom: 45px; right: 24px;">
         <a class="btn-floating btn-large waves-effect brown"><i class="material-icons">menu</i></a>
         <ul>
-            <li><a class="btn-floating red"><i class="material-icons">search</i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="material-icons">chat_bubble_outline</i></a></li>
-            <li><a class="btn-floating blue"><i id="scroll" class="material-icons" onclick="clikedWriteButton()">mode_edit</i></a></li>
+            <li><a class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="검색"><i class="material-icons">search</i></a></li>
+            <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="알림"><i class="material-icons">chat_bubble_outline</i></a></li>
+            <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="글쓰기"><i id="scroll" class="material-icons" onclick="clikedWriteButton()">mode_edit</i></a></li>
         </ul>
     </div>
 
     <footer>
 
     </footer>
-
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -212,7 +242,97 @@
     <script src="../static/js/materialize.js"></script>
 
     <script src="../static/js/init.js"></script>
-    <script src="../static/js/jquery-star-rate.js"></script>
+    <script src="../static/js/jquery.raty.js"></script>
+
+    <script>
+        $.fn.raty.defaults.path = '../static/image/';
+
+        $(function() {
+            $('#default').raty();
+
+            $('#rate').raty({
+                cancel: true,
+                cancelPlace: 'right',
+                targetScore: '#target-score',
+            });
+
+            $('.post_chang').raty({
+                readOnly: true,
+                score: 10 //게시물 별점 받아와서 변경
+            });
+
+            $('#readOnly-callback').raty({
+                readOnly: function() {
+                    return 'true becomes readOnly' == 'true becomes readOnly';
+                }
+            });
+
+            $('#functions').raty({
+                cancel: true,
+                cancelOff: 'cancel-off.png',
+                cancelOn: 'cancel-on.png',
+                path: '../static/image/',
+                precision: true,
+                starHalf: 'star-half.png',
+                starOff: 'star-off.png',
+                starOn: 'star-on.png',
+                target: '#functions-hint',
+                targetKeep: true,
+                click: function(score, evt) {
+                    alert('ID: ' + this.id + "\nscore: " + score + "\nevent: " + evt.type);
+                },
+            });
+
+            $('#score-function-run').on('click', function() {
+                $('#functions').raty('score', $('#' + this.id.replace('-run', '')).val());
+            });
+
+            $('#click-function-run').on('click', function() {
+                $('#functions').raty('click', $('#' + this.id.replace('-run', '')).val());
+            });
+
+            $('#readOnly-function-run').on('click', function() {
+                var isReadOnly = $('#' + this.id.replace('-run', '')).val() === 'true';
+
+                $('#functions').raty('readOnly', isReadOnly);
+            });
+
+            $('#cancel-function-run').on('click', function() {
+                var isTrigger = $('#' + this.id.replace('-run', '')).val() === 'true';
+
+                $('#functions').raty('cancel', isTrigger);
+            });
+
+            $('#reload-function-run').on('click', function() {
+                $('#functions').raty('reload');
+            });
+
+            $('#get-score-function-run').on('click', function() {
+                alert('score: ' + $('#functions').raty('score'));
+            });
+
+            $('#set-score-function-run').on('click', function() {
+                $('#functions').raty('score', $('#' + this.id.replace('-run', '')).val());
+            });
+
+            $('#set-function-run').on('click', function() {
+                var options = $('#' + this.id.replace('-run', '').val()),
+                    command = "$('#functions').raty('set', " + options + ");";
+
+                eval(command);
+            });
+
+            $('#destroy-function-run').on('click', function() {
+                $('#functions').raty('destroy');
+            });
+
+            $('#move-function-run').on('click', function() {
+                $('#functions').raty('move', $('#' + this.id.replace('-run', '')).val());
+            });
+        });
+
+    </script>
+
 </body>
 
 </html>

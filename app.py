@@ -54,6 +54,8 @@ class Post(db.Model):
     created = db.Column(db.DateTime, default=datetime.now)
     image = db.Column(db.String())
     video = db.Column(db.String())
+    chang = db.Column(db.Integer)
+    category = db.Column(db.String(20))
 
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Comment, db.session))
@@ -120,7 +122,7 @@ def search(email, pw, autologin, is_web=True):
     else:
         return None
 
-@app.route("/logout", methods=["POST"])
+@app.route("/logout")
 def logout():
     resp = make_response(render_template(
         "login.html"
@@ -142,7 +144,7 @@ def register():
     return render_template("register.html")
 
 # 회원가입 제출
-@app.route("/register_check", methods=["POST"])
+@app.route("/register_check")
 def register_success():
     name = request.form['name']
     email = request.form['email']
