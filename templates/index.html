@@ -3,13 +3,11 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
     <link rel="stylesheet" href="../static/css/materialize.css"></link>
     <link rel="stylesheet" href="../static/css/index.css"></link>
     <link rel="stylesheet" href="../static/css/common.css"></link>
     <link rel="stylesheet" href="../static/css/sidebar.css"></link>
     <link rel="stylesheet" href="../static/css/jquery.raty.css"></link>
-    <script src="../static/js/index.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="//cdn.transifex.com/live.js"></script>
@@ -22,7 +20,18 @@
         )
 
     </script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                type: "POST",
+                url: "/new_post",
+                data: ,
+                success: success,
+                dataType: dataType
+            });
+        });
 
+    </script>
     <div class="container">
     </div>
     <!-- 사이드바 -->
@@ -79,7 +88,9 @@
                 </li>
             </ul>
         </li>
-        <a href="/logout" class="white-text waves-effect waves-light" type="submit" name="logout">로그아웃</a>
+        <li>
+            <a href="/logout" class="white-text waves-effect waves-light" type="submit" name="logout">로그아웃</a>
+        </li>
     </ul>
 
 </head>
@@ -124,7 +135,7 @@
                 <form action="/new_post" method="post">
                     <div class="card-content white-text">
                         <div class="select">
-                            <select id="select" multiple class="black-text" name="post_category">
+                            <select id="select" class="black-text" name="post_category">
                                 <option disabled selected>카테고리를 선택해주세요!</option>
                                 <option>의류</option>
                                 <option>미용|뷰티</option>
@@ -143,19 +154,19 @@
                             </select>
                         </div>
                         <!-- 창점 매기기 -->
-                        <div id="rate" name="post_chang" style="padding-top: 10px;"></div>
+                        <div id="rate" name="score" style="padding-top: 10px;"></div>
                         <!-- 글쓰기 -->
-                            <div class="row">
-                                <div class="input-field col s12" style="padding-bottom:0px;">
-                                    <i class="material-icons prefix brown-text">mode_edit</i>
-                                    <textarea name="post_textarea" id="icon_prefix2" class="materialize-textarea black-text"></textarea>
-                                    <label for="icon_prefix2">당신의 분노를 창으로 표현해주세요!</label>
-                                </div>
+                        <div class="row">
+                            <div class="input-field col s12" style="padding-bottom:0px;">
+                                <i class="material-icons prefix brown-text">mode_edit</i>
+                                <textarea name="post_textarea" id="icon_prefix2" class="materialize-textarea black-text"></textarea>
+                                <label for="icon_prefix2">당신의 분노를 창으로 표현해주세요!</label>
                             </div>
+                        </div>
                     </div>
                     <!-- 글쓰기 카드 밑부분 -->
                     <div class="card-bottom">
-                        <button class="brown darken-2 btn waves-effect waves-light right" style="margin-top: 10px; margin-left: 10px" type="submit" name="post_action">올리기
+                        <button class="brown darken-2 btn waves-effect waves-light right" style="margin-top: 10px; margin-left: 10px" type="submit">올리기
                             <i class="material-icons right">send</i>
                         </button>
                         <div class="file-field">
@@ -170,7 +181,6 @@
                     </div>
                 </form>
             </div>
-
 
             <!-- 컨텐츠 정렬 -->
             <div class="card">
@@ -206,7 +216,7 @@
                                 <label for="icon_prefix2-comment">댓글을 달아주세요!</label>
                             </div>
                             <div class="col s4">
-                                <button class="brown darken-2 btn waves-effect waves-light right" type="submit" name="action" style="position: fixed; margin-top: 60px; margin-left: 30px">올리기
+                                <button class="brown darken-2 btn waves-effect waves-light right" type="submit" style="position: fixed; margin-top: 60px; margin-left: 30px">올리기
                                     <i class="material-icons right">send</i>
                                 </button>
                             </div>
@@ -214,6 +224,7 @@
                     </div>
                 </div>
             </div>
+
 
 
         </div>

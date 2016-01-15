@@ -1,3 +1,5 @@
+# -*-coding: utf-8 -*-
+
 from datetime import datetime, timedelta
 
 from flask import (
@@ -12,6 +14,7 @@ from db import (
     migrate,
 )
 from models.user import User
+from models.post import Post
 from admin import admin
 
 app = Flask(__name__)
@@ -138,30 +141,38 @@ def create(name, email, passwd):
 #유저 포스팅
 @app.route("/new_post", methods=["POST"])
 def post():
-    from models.post import Post
-    new = Post()
-    new.idx = new.idx + 1
-    new.text = request.form['post_textarea']
-    new.category = request.form['post_category']
-    new.chang = request.form['post_chang']
-    new.image = request.form['post_image']
-    new.who = User.query.get(Post.query.first().who)
-    new.created = datetime.now()
-    return json(new.idx, new.text, new.category, new.chang, new.image, new.who, new.created)
+    new_post = Post()
+    new_post.text = request.form['post_textarea']
+    new_post.category = request.form['post_category']
+    new_post.chang = request.form['score']
+    new_post.image = request.form['post_image']
+    new_post.writer = request.cookies.get('username', None)
+    new_post.active = True
+    new_post.created = datetime.now()
 
+    db.session.add(new_post)
+    db.session.commit()
+
+    return json(new_post.text, new_post.category, new_post.chang, new_post.image, new_post.writer, new_post.created)
+
+
+@app.route("/init",methods=["POST", "GET"])
+def init():
+    post = db.session.query(Post).filter_by(active=True).all()
+    post.writer
+    return post
 
 
 @app.route("/json")
-def json(idx, text, category, chang, image, who, created):
+def json(idx, text, category, chang, image, writer, created):
     return jsonify({
-        1: {
-            "idx": idx,
+        "json": {
             "text": text,
-            "who": who,
-            "created": created,
+            "writer": writer,
+            "created": str(created),
             "image": image,
-            "chang": chang,
-            "category": category,
+            "chang": str(chang),
+            "category": str(category),
         }
     })
 
