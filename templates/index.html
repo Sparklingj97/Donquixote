@@ -182,10 +182,12 @@
                 </form>
             </div>
 
+           
+           {% for post in posts %}
             <!-- 컨텐츠 정렬 -->
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="" src="../static/image/2.jpg">
+                    <img class="" src= "{{ post.image }}">
                 </div>
                 <div class="card-content activator">
                     <span class="card-title grey-text text-darken-4">우린 어디다 주차해야하나여..</span>
@@ -193,22 +195,13 @@
                     <div class="post_chang" style="float:right"></div>
                     <p>
                         <div class="chip">
-                            생활 서비스
-                        </div>
-                        <div class="chip">
-                            문화
-                        </div>
-                        <div class="chip">
-                            교육
+                            {{ post.category }}
                         </div>
                     </p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">우린 어디다 주차해야하나여...<i class="material-icons right">close</i></span>
-                    <p>보건소 주차장에 장애인 주차시설은 없고 여성전용 주차장같은 말같지도 않은게 있네요..
-                        <br>좀 너무한것 같지 않습니까??
-                        <br>너무 어이가 없어서 10창 드리려는데 여러분 생각은 어떤가요??
-                    </p>
+                    <p>{{ post.textarea }}</p>
                     <div class="write-comment-box">
                         <div class="input-field row" style="padding-bottom:0px;">
                             <div class="col s8">
@@ -224,7 +217,7 @@
                     </div>
                 </div>
             </div>
-
+            {% endfor %}
 
 
         </div>

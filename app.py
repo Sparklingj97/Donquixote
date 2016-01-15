@@ -139,7 +139,7 @@ def create(name, email, passwd):
 
 
 #유저 포스팅
-@app.route("/new_post", methods=["POST"])
+@app.route("/new_post", methods=["GET","POST"])
 def post():
     new_post = Post()
     new_post.text = request.form['post_textarea']
@@ -153,28 +153,13 @@ def post():
     db.session.add(new_post)
     db.session.commit()
 
-    return json(new_post.text, new_post.category, new_post.chang, new_post.image, new_post.writer, new_post.created)
+    post.image = new_post.image
+    post.category = new_post.category
+    post.textarea = new_post.text
 
-
-@app.route("/init",methods=["POST", "GET"])
-def init():
-    post = db.session.query(Post).filter_by(active=True).all()
-    post.writer
-    return post
-
-
-@app.route("/json")
-def json(idx, text, category, chang, image, writer, created):
-    return jsonify({
-        "json": {
-            "text": text,
-            "writer": writer,
-            "created": str(created),
-            "image": image,
-            "chang": str(chang),
-            "category": str(category),
-        }
-    })
+    return render_template(
+        'index.html',posts=post
+    )
 
 
 if __name__ == "__main__":
